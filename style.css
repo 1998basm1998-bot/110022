@@ -1,0 +1,176 @@
+:root {
+    --primary-color: #00ff88;
+    --danger-color: #ff4d4d;
+    --text-color: #ffffff;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Cairo', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* نمط الزجاج (Glassmorphism) */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+.balance-card {
+    text-align: center;
+    transform-style: preserve-3d;
+}
+
+.balance-card h2 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    opacity: 0.8;
+    transform: translateZ(30px);
+}
+
+.balance-card h1 {
+    font-size: 2.5rem;
+    margin: 10px 0;
+    letter-spacing: 1px;
+    transform: translateZ(50px);
+}
+
+.income-expense {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    transform: translateZ(40px);
+}
+
+.box {
+    flex: 1;
+}
+
+.box h4 {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.income p { color: var(--primary-color); font-size: 1.2rem; font-weight: 600; }
+.expense p { color: var(--danger-color); font-size: 1.2rem; font-weight: 600; }
+
+.form-control label {
+    display: block;
+    margin: 10px 0 5px;
+    font-size: 0.9rem;
+}
+
+input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid var(--glass-border);
+    background: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: var(--primary-color);
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.btn {
+    cursor: pointer;
+    background: linear-gradient(45deg, #00b09b, #96c93d);
+    box-shadow: 0 4px 15px rgba(0, 176, 155, 0.4);
+    color: #fff;
+    border: 0;
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 20px;
+    padding: 12px;
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.2s;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.list {
+    list-style-type: none;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.list::-webkit-scrollbar {
+    width: 5px;
+}
+
+.list::-webkit-scrollbar-thumb {
+    background: var(--glass-border);
+    border-radius: 10px;
+}
+
+.list li {
+    background: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border-right: 5px solid;
+    transition: 0.3s;
+}
+
+.list li.plus { border-color: var(--primary-color); }
+.list li.minus { border-color: var(--danger-color); }
+
+.delete-btn {
+    cursor: pointer;
+    background: var(--danger-color);
+    border: 0;
+    color: #fff;
+    font-size: 1.2rem;
+    line-height: 20px;
+    padding: 5px 10px;
+    position: absolute;
+    left: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 5px;
+}
+
+.list li:hover .delete-btn {
+    opacity: 1;
+    left: 10px;
+}
