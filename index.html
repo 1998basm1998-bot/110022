@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>إدارة المصاريف - فن التكنولوجيا الحديث</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <div class="glass-card balance-card" data-tilt data-tilt-glare data-tilt-max-glare="0.2">
+            <h2>الرصيد الحالي</h2>
+            <h1 id="balance">0 د.ع</h1>
+            <div class="income-expense">
+                <div class="box income">
+                    <h4>الإيرادات <i class="fa-solid fa-arrow-up"></i></h4>
+                    <p id="money-plus">0 د.ع</p>
+                </div>
+                <div class="box expense">
+                    <h4>المصروفات <i class="fa-solid fa-arrow-down"></i></h4>
+                    <p id="money-minus">0 د.ع</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-card form-card">
+            <h3>إضافة عملية جديدة</h3>
+            <form id="transaction-form">
+                <div class="form-control">
+                    <label for="text">التفاصيل (مثال: إعلانات فيسبوك، إيجار المحل)</label>
+                    <input type="text" id="text" placeholder="أدخل التفاصيل..." required>
+                </div>
+                <div class="form-control">
+                    <label for="amount">المبلغ (د.ع) <br> <small>(اكتب سالب - للمصروفات، وموجب للإيرادات)</small></label>
+                    <input type="number" id="amount" placeholder="أدخل المبلغ..." required>
+                </div>
+                <button type="submit" class="btn">إضافة العملية</button>
+            </form>
+        </div>
+
+        <div class="glass-card history-card">
+            <h3>سجل الحركات</h3>
+            <ul id="list" class="list">
+                </ul>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
